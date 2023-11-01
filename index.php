@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: https://ensolverstest.000webhostapp.com/");
+header("Access-Control-Allow-Origin: https://nicolasbernsteintodoapp.000webhostapp.com/");
 header("Access-Control-Allow-Methods: GET, POST, SET, DELETE, PUT, OPTIONS");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type");
@@ -13,6 +13,8 @@ $session = new Session;
 $repository = new repository;
 
 //update todo
+
+
 if ($_SERVER["REQUEST_METHOD"] === "PUT") {
     $ReceivedData = file_get_contents("php://input");
     $data = json_decode($ReceivedData, true);
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $repository->create($db, $_POST, $_SESSION['id']);
             $repository->getalltodos($db, $_SESSION['id']);
         }
-    } else if ($_POST['datatype'] === 'DELETE') {
+    } else if ($_POST['datatype'] === 'DELETE') { //for 000webhost
         $id = isset($_POST['id']) ? $_POST['id'] : null;
         $repository->delete($db, $id);
         if ($id !== null) {
@@ -70,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         } else {
             echo "No id received";
         }
-    } else if ($_POST['datatype'] === "PUT") {
+    } else if ($_POST['datatype'] === "PUT") { //for 000webhost
         $data = $_POST;
         if ($data['done'] === "true") {
             echo json_encode($data['done']);

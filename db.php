@@ -4,8 +4,8 @@ class dbConnect
     public $con;
 
     private $server = 'localhost';
-    private $dbname = 'id21469953_usersdata';
-    private $user = 'id21469953_userdata';
+    private $dbname = 'id21487704_tododatabase';
+    private $user = 'id21487704_usersdata';
     private $pass = 'Userdata1!';
 
     /*
